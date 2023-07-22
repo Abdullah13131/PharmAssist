@@ -1,0 +1,77 @@
+import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
+import { useState } from 'react';
+import CustomTextField from './components/CustomTextField';
+import LoginHeader from './components/LoginHeader';
+
+export default function App() {
+  const [email, setEmail] = useState('');
+  const [pass, setPass] = useState('');
+
+  return (
+    <View style={styles.container}>
+
+      <LoginHeader />
+      
+      <Text style={styles.fieldname}>Email Address</Text>
+
+      <CustomTextField value={email} onChangeText={setEmail} />
+
+      <Text style={styles.fieldname}>Password</Text>
+
+      <CustomTextField value={pass} onChangeText={setPass} />
+
+      <TouchableOpacity>
+        <Text style={styles.forgot}>Forgot Password?</Text>
+      </TouchableOpacity>
+
+      <View>
+      <Text style={styles.fieldname}>Remember Me</Text>
+      </View>
+
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.signIn}>Sign In</Text>
+      </TouchableOpacity>
+
+      <Text style={styles.signUp}>
+        Don't have an account?
+        <TouchableOpacity >
+          <Text style={styles.signUp}> Sign Up</Text>
+        </TouchableOpacity>
+      </Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  fieldname: {
+    margin: 8,
+    fontSize: 12,
+    fontWeight: 'bold',
+  },
+  forgot: {
+    paddingRight: 40,
+    fontSize: 12,
+    fontWeight: 'bold',
+    textAlign: 'right',
+  },
+  button: {
+    margin: 10,
+    backgroundColor: '#2196F3',
+    borderRadius: 12,
+  },
+  signIn: {
+    margin: 10,
+    fontSize: 15,
+    fontWeight: 'bold',
+    color: 'white',
+    textAlign: 'center',
+  },
+  signUp: {
+    fontSize: 12,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+});
